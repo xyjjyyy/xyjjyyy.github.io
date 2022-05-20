@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>捷竞</title>
+</head>
+
+<body>
+<div class="all">
+
+    <div class="main">
+        <h1>捷竞</h1>
+
+        <h2>文件结构</h2>
+
+<p>正如您所见，以下三个文件夹是我们网页部分全部的源码，包含<a href="www.sxl.cn">官方主页</a>(www.sxl.cn)和<a href="JieJing">注册登录以及论坛界面</a>(JieJing)以及<a href="jjServe">后端服务</a>(jjServe);</p>
+
+<p><img src="https://lky-img.obs.cn-east-2.myhuaweicloud.com/image-20220426111210999.png" alt="image-20220426111210999" /></p>
+
+<h2>工具使用</h2>
+
+<p>我们主要使用代码编写工具、数据库存储工具、域名映射工具以及线上部署工具。</p>
+
+<ul>
+<li>使用了 <strong>webStrom</strong> (或者 vscode )进行代码部分的编写；</li>
+<li>借助 <strong>mysql</strong> 作为本地数据库进行登录信息、登陆验证以及论坛信息的储存；</li>
+<li>采用 <strong>花生壳</strong> 进行 http https 公网域名映射(以减少域名方面的注册花费)；</li>
+<li>利用 <strong>腾讯云 CloudBase</strong> 进行云上部署；</li>
+</ul>
+
+<h2>如何运行</h2>
+
+<blockquote>
+<p>本部分讲解如何运行全部的代码</p>
+
+<p>我们进入 <strong>互联网加创业实训网页源码</strong>这个文件夹进行操作</p>
+</blockquote>
+
+<p>因为数据库Mysql部署在本地及笔者的电脑上，原则上来说你是无法在你的电脑上运行这些文件的，但是笔者假设你会修改数据库部分代码，并且笔者侧重于讲解我们运行的方法以及如何部署。</p>
+
+<blockquote>
+<p>提前<code>npm install -g @cloudbase/cli</code>安装好我们的 cloudbase/cli 工具</p>
+</blockquote>
+
+<ul>
+<li>Mysql 建表包括 logtable 和 luntan (从上至下)</li>
+</ul>
+
+<p><img src="https://lky-img.obs.cn-east-2.myhuaweicloud.com/image-20220426113138518.png" alt="image-20220426113138518" /></p>
+
+<p><img src="https://lky-img.obs.cn-east-2.myhuaweicloud.com/image-20220426113227082.png" alt="image-20220426113227082" /></p>
+
+<ul>
+<li><p><a href="www.sxl.cn">官方主页</a>(www.sxl.cn)线上部署：</p>
+
+<ul>
+<li>进入文件夹 <code>cd www.sxl.cn</code></li>
+<li>cloudbase初始化 <code>cloudbase init --without-template</code></li>
+<li>部署 <code>cloudbase framework:deploy</code></li>
+</ul></li>
+
+<li><p><a href="JieJing">注册登录以及论坛界面</a>(JieJing)线上部署：</p>
+
+<ul>
+<li>进入文件夹 <code>cd JieJing</code></li>
+<li>cloudbase初始化 <code>cloudbase init --without-template</code></li>
+<li>部署 <code>cloudbase framework:deploy</code>
+<br /></li>
+</ul></li>
+
+<li><p><a href="jjServe">后端服务</a>(jjServe)部署：</p>
+
+<ul>
+<li>花生壳域名映射服务打开(免费的两个域名映射就够用了)</li>
+<li>进入文件夹 <code>cd jjServe</code></li>
+<li>运行后端 <code>node app.js</code></li>
+</ul></li>
+</ul>
+
+<p>然后环境就全部配置完成了，云上部署也就全部完成了，由于<strong>后端部署需要租用云服务器</strong>才行，为了<strong>减少花费决定采用本机作为服务器</strong>，所以导致了登陆界面只有在本机电脑进行打开的情况下才可以进行访问,所以如有需要可以联系 笔者 (QQ:904588748) 进行实践。</p>
+
+<h2>Demo展示</h2>
+
+<blockquote>
+<p>Ctrl点击可以打开以下页面</p>
+</blockquote>
+
+<p>官方宣传主页&ndash;&gt;<a href="https://hello-cloudbase-3gkeskm928295009-1307841918.tcloudbaseapp.com/">捷竞</a></p>
+
+<p>个人论坛主页&ndash;&gt;<a href="https://jiejing-9gctyrtfea0f2859-1307841918.tcloudbaseapp.com/#/">LunTan</a></p>
+
+<blockquote>
+<p>注意个人论坛主页由于本机是服务器，所以无法登录，且存在登陆保护，所以不登陆就无法使用，故有需要请联系笔者 (QQ:904588748)</p>
+</blockquote>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;This is a test&quot;)
+}
+</code></pre>
+
+    </div>
+</div>
+</body>
+<style>
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: #fdfdfd;
+    }
+
+    .main {
+        width: 38em;
+    }
+
+    @media (min-width: 800px) {
+        .main {
+            margin-left: 20em;
+        }
+    }
+
+    img {
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    blockquote {
+        padding: 0;
+        background-color: #f2f0f7;
+        border-radius: 2px;
+        margin: 0;
+    }
+
+    blockquote p {
+        margin: 1em;
+    }
+
+    code {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1em;
+        color: #4562ee;
+        background-color: #f2f0f7;
+    }
+
+    pre {
+        border: 1px solid #9f9ff3;
+        background-color: rgba(253, 253, 253, 0);
+    }
+
+    .language-go {
+        color: black;
+        background-color: rgba(255, 255, 255, 0);
+    }
+</style>
+</html>
